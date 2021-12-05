@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <!-- Start World -->
+    <include file="$(find spawn_bb8)/launch/start_world.launch">
+        <arg name="world_name" value="$(find spawn_bb8)/worlds/urban.world"/>
+    </include>
+    
+
+</launch>
