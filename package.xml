@@ -56,6 +56,38 @@
   <exec_depend>rospy</exec_depend>
   <exec_depend>urdf</exec_depend>
 
+  <!-- I belive these are like imports in a normal scripting language-->
+  <!-- Found this error one time, putting it here so future me sees this when adding dependancies 
+    Error(s):
+    - The manifest of package "Project-Swarm" (with format version 2) must not contain the following tags: run_depend
+    - Please replace <run_depend> tags with <exec_depend> tags.
+  -->
+
+  <build_depend>angles</build_depend>
+  <build_depend>control_toolbox</build_depend>
+  <build_depend>gazebo_ros</build_depend>
+  <build_depend>robot_controllers</build_depend>
+  <build_depend>robot_controllers_interface</build_depend>
+  <build_depend>gazebo_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+
+  <exec_depend>actionlib</exec_depend>
+  <exec_depend>control_toolbox</exec_depend>
+  <exec_depend>depth_image_proc</exec_depend>
+  <exec_depend>bb_8_description</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>gazebo_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>nodelet</exec_depend>
+  <exec_depend>rgbd_launch</exec_depend>
+  <exec_depend>robot_controllers</exec_depend>
+  <exec_depend>robot_controllers_interface</exec_depend>
+  <exec_depend>trajectory_msgs</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
+  <!-- end extra imports-->
+
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
