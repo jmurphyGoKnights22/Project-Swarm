@@ -24,7 +24,7 @@ git clone https://github.com/patrick1bauer/autonomous_search_with_ai.git
 git clone https://github.com/chaolmu/gazebo_models_worlds_collection.git
 cd ~/catkin_ws
 catkin_make
-source devel/setup.bash
+source devel/setup.sh
 
 cd ~/catkin_ws/src
 apt install curl

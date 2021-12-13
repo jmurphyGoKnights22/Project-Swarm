@@ -8,6 +8,10 @@ A simulated swarm of drones is shown to search a virtual urban environment to lo
 
 ## Getting Started
 
+### For Those Who Already Know What They're Doing
+
+This project is a single ROS package to be put in a catkin workspace. If you understand what a package is and how to use one in your own project, you can likely skip the rest of this readme since you probably already know what its telling you to do and why.
+
 ### Setting up Ubuntu 20.04 LTS
 
 The simulated environment runs inside of a software called Gazebo, and relies heavily on a software called Robot Operating System, or ROS. Gazebo is only availible for Linux, and the version of ROS we are using specifically takes Ubuntu 20.04 LTS. Since almost everyone has a windows computer, our first step will be to get the correct operating system running. 
@@ -26,21 +30,36 @@ If you have the issue of a frozen purple or black screen when loading into ubunt
 
 ### Installing Gazebo and Looking Around the Virtual Environment
 
-Run our script named `SDsetup.sh` with the command `sudo bash SDsetup.sh` from whatever directory you downloaded the script to. Keep in mind that this script will download two other github repos in the same directory it is in. If you don't want to run the script, you can run these commands one by one in your terminal with sudo permissions instead.
+Run our script named `SDsetup.sh` with the command `sudo bash SDsetup.sh` from whatever directory you downloaded the script to. This script will add to your .bashrc file, set up a catkin workspace, and place our github repo inside of it alongside a few other github repos. If you don't want to run the script, you can run each individual command found in the script one by one in your terminal with sudo permissions instead. Those commands are coppied below for your convenience.
 
 ```
-#!/bin/sh
-apt-get update
-apt-get install git
-curl -sSL http://get.gazebosim.org | sh
+apt update
+apt install git
+apt install ros-noetic-desktop-full
+source /opt/ros/noetic/setup.bash
+echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+echo "export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/catkin_ws/src/gazebo_models_worlds_collection/models" >> ~/.bashrc
+source ~/.bashrc 
+rosdep init 
+rosdep update
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/
+catkin_make
+source devel/setup.bash
+cd ~/catkin_ws/src
 git clone https://github.com/patrick1bauer/autonomous_search_with_ai.git
 git clone https://github.com/chaolmu/gazebo_models_worlds_collection.git
-echo "export GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:<path to this repo>/worlds" >> ~/.bashrc
-source ~/.bashrc
+cd ~/catkin_ws
+catkin_make
+source devel/setup.sh
+cd ~/catkin_ws/src
+apt install curl
+curl -sSL http://get.gazebosim.org | sh
 cp ./autonomous_search_with_ai/worlds/urban.world /usr/share/gazebo-11/worlds
 ```
 
-Now, you can open the environment the drone swarm will search with the command `gazebo worlds/urban.world`. You can use the mouse to change your view in the envrionment. Left click and drag pans the camera, right click and drag zooms the camera, and middle click and drag rotates the camera.
+Now, you will need to build your workspace by navigating to the top level directory of the workspace and running the command `catkin_make` and then `source devel/setup.sh`. You can launch the world file to take a look around with the command `roslaunch Project-Swarm only_world.launch` and you can spawn a BB-8 model into the world using the command `roslaunch Project-Swarm only_bb8.launch`. You can use the mouse to change your view in the envrionment. Left click and drag pans the camera, right click and drag zooms the camera, and middle click and drag rotates the camera. It may sound childish, but if you select BB-8 with a left click, then right click on him, you can open the "apply forces" panel and kick him around. This is way more entertaining than you think, and if you've made it this far, you owe it to yourself to try it.
 
 ## Running the Simulation
 
@@ -48,8 +67,8 @@ Coming to a senior design 2 presentation near you in Spring 2022!
 
 ## Team Members
 
-Andrew (AI & Pathfinding, CNN & Computer Vision, Machine Learning)
-Bobby (AI & Pathfinding, CNN & Computer Vision, Machine Learning)
+Andrew Borg (AI & Pathfinding, CNN & Computer Vision, Machine Learning)
+Bobby Pappas (AI & Pathfinding, CNN & Computer Vision, Machine Learning)
 James Murphy (Project Lead, AI & Pathfinding, CNN & Computer Vision, Machine Learning)
 Matthew Hubbs (AI & Pathfinding, Gazebo & Simulation, Machine Learning)
 Sebastian Almeida (CNN/Computer Vision, Gazebo & Simulation, Machine Learning)
