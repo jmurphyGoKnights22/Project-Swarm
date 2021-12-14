@@ -30,6 +30,7 @@ If you have the issue of a frozen purple or black screen when loading into ubunt
 
 ### Installing Gazebo and Looking Around the Virtual Environment
 
+
 Run our script named `SDsetup.sh` with the command `sudo bash SDsetup.sh` from whatever directory you downloaded the script to. This script will add to your .bashrc file, set up a catkin workspace, and place our github repo inside of it alongside a few other github repos. If you don't want to run the script, you can run each individual command found in the script one by one in your terminal with sudo permissions instead. Those commands are coppied below for your convenience.
 
 ```
@@ -60,6 +61,7 @@ cp ./autonomous_search_with_ai/worlds/urban.world /usr/share/gazebo-11/worlds
 ```
 
 Now, you will need to build your workspace by navigating to the top level directory of the workspace and running the command `catkin_make` and then `source devel/setup.sh`. You can launch the world file to take a look around with the command `roslaunch Project-Swarm only_world.launch` and you can spawn a BB-8 model into the world using the command `roslaunch Project-Swarm only_bb8.launch`. You can use the mouse to change your view in the envrionment. Left click and drag pans the camera, right click and drag zooms the camera, and middle click and drag rotates the camera. It may sound childish, but if you select BB-8 with a left click, then right click on him, you can open the "apply forces" panel and kick him around. This is way more entertaining than you think, and if you've made it this far, you owe it to yourself to try it.
+
 
 ## Running the Simulation
 
