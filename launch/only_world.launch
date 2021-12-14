@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <!-- Start World -->
+    <include file="$(find Project-Swarm)/launch/start_world.launch">
+        <arg name="world_name" value="$(find Project-Swarm)/worlds/urban.world"/>
+    </include>
+    
+
+</launch>
