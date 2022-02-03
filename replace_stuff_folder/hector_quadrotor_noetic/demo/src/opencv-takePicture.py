@@ -6,19 +6,24 @@
 
 import rospy
 import cv2
+from PIL import Image as PIL_img
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
 
 bridge = CvBridge()
+image_counter = 0
 
 def img_callback(data):
+    global image_counter
     cv_image = bridge.imgmsg_to_cv2(data, "bgr8")
-    cv2.imshow("Raw Image", cv_image)
+    real_image = PIL_img.fromarray(cv_image)
+    cv2.imshow("Tab in here and press Space to save image", cv_image)
     key_code = cv2.waitKey(1)
     if key_code % 256 == 32:
-        file_name = "~/catkin_ws/src/hector_quadrotor_noetic/hector_quadrotor/hector_quadrotor_demo/launch/src/images/bb8_sample.jpg"
-        cv2.imwrite(file_name, cv_image)
+        file_name = "images/bb8_sample{}.png".format(image_counter)
+        real_image.save(file_name)
         print(file_name + " has been saved!")
+        image_counter += 1
         
 
 
