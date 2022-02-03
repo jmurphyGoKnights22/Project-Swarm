@@ -20,7 +20,7 @@ def img_callback(data):
 def main():
     print("Camera feed starting up.....")
     rospy.init_node('start_camera')
-    img_sub = rospy.Subscriber("/uav1/front_cam/camera/image", Image, img_callback)
+    img_sub = rospy.Subscriber("/front_cam/camera/image", Image, img_callback)
     rospy.spin()
 
 main()
