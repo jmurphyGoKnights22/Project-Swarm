@@ -11,7 +11,7 @@ from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
 
 bridge = CvBridge()
-image_counter = 0
+image_counter = 66
 
 def img_callback(data):
     global image_counter
