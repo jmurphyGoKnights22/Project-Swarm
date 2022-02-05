@@ -20,7 +20,7 @@ def img_callback(data):
     cv2.imshow("Tab in here and press Space to save image", cv_image)
     key_code = cv2.waitKey(1)
     if key_code % 256 == 32:
-        file_name = "images/bb8_sample{}.png".format(image_counter)
+        file_name = "ProjectSwarmTrainingImages/bb8_sample{}.png".format(image_counter)
         real_image.save(file_name)
         print(file_name + " has been saved!")
         image_counter += 1
