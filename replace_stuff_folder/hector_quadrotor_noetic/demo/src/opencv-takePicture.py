@@ -16,7 +16,8 @@ image_counter = 66
 def img_callback(data):
     global image_counter
     cv_image = bridge.imgmsg_to_cv2(data, "bgr8")
-    real_image = PIL_img.fromarray(cv_image)
+    bgr2rgb = cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB)
+    real_image = PIL_img.fromarray(bgr2rgb)
     cv2.imshow("Tab in here and press Space to save image", cv_image)
     key_code = cv2.waitKey(1)
     if key_code % 256 == 32:
