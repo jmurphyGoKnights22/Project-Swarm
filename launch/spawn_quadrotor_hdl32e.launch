@@ -7,5 +7,10 @@
     <arg name="model" value="$(find Project-Swarm)/urdf/quadrotor_hdl32e.gazebo.xacro"/>
   </include>
 
+  <!-- Spawn rviz instance -->
+  <launch>
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find Project-Swarm)/rviz/rviz_config_3dLidar.rviz" />
+  </launch>
+
   <!--node pkg="Project-Swarm" type="opencv-camera.py" name="start_camera" output="screen"/-->
 </launch>
