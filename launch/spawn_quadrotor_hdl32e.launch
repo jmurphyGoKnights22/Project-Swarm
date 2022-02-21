@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- Spawn simulated quadrotor uav -->
+  <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch" >
+    <arg name="model" value="$(find Project-Swarm)/urdf/quadrotor_hdl32e.gazebo.xacro"/>
+  </include>
+
+  <!--node pkg="Project-Swarm" type="opencv-camera.py" name="start_camera" output="screen"/-->
+</launch>
