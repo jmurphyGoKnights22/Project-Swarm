@@ -7,7 +7,7 @@ import os
 from  PIL import Image
 import numpy as np
 
-def run_detection(real_image):
+def run_detection(real_image, model):
     # Globals    
     SCORE_THRESHOLD = 0.5
 
@@ -16,9 +16,6 @@ def run_detection(real_image):
     print("cuda is availible?: " + str(torch.cuda.is_available()))
 
     # Set device to cuda or CPU, Load custom YOLOv5 model and weights, Link device to loaded model
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = torch.hub.load('ultralytics/yolov5', 'custom', path="bestPizza500.pt", force_reload=True)
-    model.to(device)
 
     # load an image. in the real thing, this would be a parameter
     # Toggle a True Positive and True Negative below
