@@ -5,7 +5,7 @@
   <arg name="enable_floor_detection" default="true" />
   <arg name="enable_gps" default="false" />
   <arg name="enable_imu_acc" default="true" />
-  <arg name="enable_imu_ori" default="false" />
+  <arg name="enable_imu_ori" default="true" />
 
   <arg name="points_topic" default="/velodyne_points" />
   <arg name="map_frame_id" default="map" />
