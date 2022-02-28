@@ -1,3 +1,9 @@
+Better way:
+
+sudo apt install ros-noetic-moveit
+
+why did I do it from source before?
+
 reosdep install step will take a while (~15-30 minutes)
 I ran into an error on that step at first, also. I am sure that I messed up my workspace in
 several ways ways trying to figure things out and install all the necessary stuff.
