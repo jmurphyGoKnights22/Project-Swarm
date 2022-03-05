@@ -1,5 +1,10 @@
 #! /usr/bin/env python3
 
+import rospy
+
+
+import rospy
+from std_msgs.msg import Bool
 import sys
 sys.path.append("./yolov5/models/")
 import torch
@@ -7,7 +12,7 @@ import os
 from  PIL import Image
 import numpy as np
 
-def run_detection(real_image, model):
+def run_detection(real_image, model, publisher):
     # Globals    
     SCORE_THRESHOLD = 0.5
 
@@ -34,7 +39,7 @@ def run_detection(real_image, model):
     
     # If it detected a True Positive, shows vertices for prediction, confidence score, class, name
     # If it detected a True Negative, it will be an empty tensor instead
-    # print(result.pandas().xyxy[0])
+    print(result.pandas().xyxy[0])
 
     # Isolate the confidence score
     confidence = result.xyxyn[0][:, -2]
@@ -47,5 +52,9 @@ def run_detection(real_image, model):
         confidence = -1
     
     # Print the boolean result if we have a score > SCORE_THRESHOLD.
-    print("Did we find BB8?: " + (str(True) if confidence > SCORE_THRESHOLD else str(False)))
+    found_bb8 = True if confidence > SCORE_THRESHOLD else False
+    print(found_bb8)
+    if found_bb8 == True:
+        publisher.publish(Bool(True))
+    
 
