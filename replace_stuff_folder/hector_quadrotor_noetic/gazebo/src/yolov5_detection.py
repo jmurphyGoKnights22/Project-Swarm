@@ -2,9 +2,10 @@
 
 import rospy
 
-
+import earthpy as et
 import rospy
-from std_msgs.msg import Bool
+# from std_msgs.msg import Bool
+from std_msgs.msg import Int16
 import sys
 sys.path.append("./yolov5/models/")
 import torch
@@ -12,7 +13,13 @@ import os
 from  PIL import Image
 import numpy as np
 
-def run_detection(real_image, model, publisher, droneId):
+homedir = str(et.io.HOME)
+torch.hub._validate_not_a_forked_repo=lambda a,b,c: True
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model = torch.hub.load('ultralytics/yolov5', 'custom', path= homedir + "/catkin_ws/src/hector_quadrotor_noetic/hector_quadrotor/hector_quadrotor_gazebo/launch/src/bestPizza500.pt", force_reload=True)
+model.to(device)
+
+def run_detection(real_image, model, droneId, publisher=None):
     # Globals    
     SCORE_THRESHOLD = 0.5
 
@@ -46,16 +53,23 @@ def run_detection(real_image, model, publisher, droneId):
     print("Confidence Score Tensor: " + str(confidence))
     print("Drone Id: " + str(droneId))
 
-    # Below might have a better option to reduce runtime for a O(1) comparison instead of doing a type conversion first
-
-    # If we get a True Negative, feature map confidence to negative
-    if str(confidence) == "tensor([])":
-        confidence = -1
+    # If we get a True Negative, return false since we arent even looking at something that *might* be bb8
+    if len(confidence) == 0:
+        print("\n")
+        found_bb8 = False # redundant, but self documenting line
+        return found_bb8
     
-    # Print the boolean result if we have a score > SCORE_THRESHOLD.
-    found_bb8 = True if confidence > SCORE_THRESHOLD else False
-    print(found_bb8)
-    if found_bb8 == True:
-        publisher.publish(Bool(True))
+    # This will break if we see more than one thing with a non zero confididence of it being bb8. will only take the first item
+    extracted_confidence = confidence[0]
+    if extracted_confidence >= 0.5:
+        # publisher.publish(Bool(True))
+        print("KILL HIM! KILL HIM NOW! (cam " + str(droneId) + ")\n")
+        found_bb8 = True
+        return found_bb8
+    else: 
+        publisher.publish(Int16(droneId)) # SEBASIAN LOOK AT THIS THIS WHERE U SUBSCRIBE TO KNOW IF YOU DO YOUR NAVIGATION SEQUENCE BREAK
+        print("HAHA, I'M IN DANGER (cam " + str(droneId) + ")\n")
+        found_bb8 = False
+        return False
     
 
