@@ -48,10 +48,6 @@
      </include>
    </group>
 
-  <node pkg="hector_quadrotor_gazebo" type="opencv-camera.py" name="start_camera_" output="screen"/>
-  <node pkg="hector_quadrotor_gazebo" type="opencv-camera2.py" name="start_camera__" output="screen"/>
-  <node pkg="hector_quadrotor_gazebo" type="opencv-camera3.py" name="start_camera___" output="screen"/>
-  <node pkg="hector_quadrotor_gazebo" type="opencv-camera4.py" name="start_camera____" output="screen"/>
-  <node pkg="hector_quadrotor_gazebo" type="opencv-camera5.py" name="start_camera_____" output="screen"/>
+   <node pkg="hector_quadrotor_gazebo" type="object_detection_node.py" name="object_detection" output="screen"/>
 </launch>
 
