@@ -39,8 +39,13 @@ def img_callback(data, cam_num):
         shoot_him_pub.publish(Int16(cam_num))
         print("BB* found on cam " + str(cam_num) + "!!")
     # print("Camera booted!")
-    # cv2.imshow("Raw Image 1", cv_image)
+    # cv2.imshow("Raw Image " + str(cam_num), cv_image)
     # cv2.waitKey(3)
+
+# def display_image_callback(data, cam_num):
+#     cv_image = bridge.imgmsg_to_cv2(data, "bgr8")
+#     cv2.imshow("Raw Image " + str(cam_num), cv_image)
+
 
 def main():
     print("Camera feed starting up.....")
@@ -48,11 +53,11 @@ def main():
 
     # prep shoot him pub
     global shoot_him_pub 
-    shoot_him_pub = rospy.Publisher('/uav1/found_bb8', Int16, queue_size=10)
+    shoot_him_pub = rospy.Publisher('found_bb8_shoot', Int16, queue_size=10)
     shoot_him_pub.publish(Int16(-1))
     # prep squint at him pub
     global squint_at_him_pub 
-    squint_at_him_pub = rospy.Publisher('/uav1/found_bb8', Int16, queue_size=10)
+    squint_at_him_pub = rospy.Publisher('found_bb8_squint', Int16, queue_size=10)
     squint_at_him_pub.publish(Int16(-1))
     # create subscribers to the cameras to keep an eye out for him
     img_sub1 = rospy.Subscriber("/uav1/front_cam/camera/image", Image, img_callback, 1)
@@ -60,6 +65,12 @@ def main():
     img_sub3 = rospy.Subscriber("/uav3/front_cam/camera/image", Image, img_callback, 3)
     img_sub4 = rospy.Subscriber("/uav4/front_cam/camera/image", Image, img_callback, 4)
     img_sub5 = rospy.Subscriber("/uav5/front_cam/camera/image", Image, img_callback, 5)
+    # these ones display the camera feed
+    # img_display_sub1 = rospy.Subscriber("/uav1/front_cam/camera/image", Image, display_image_callback, 1)
+    # img_display_sub2 = rospy.Subscriber("/uav2/front_cam/camera/image", Image, display_image_callback, 2)
+    # img_display_sub3 = rospy.Subscriber("/uav3/front_cam/camera/image", Image, display_image_callback, 3)
+    # img_display_sub4 = rospy.Subscriber("/uav4/front_cam/camera/image", Image, display_image_callback, 4)
+    # img_display_sub5 = rospy.Subscriber("/uav5/front_cam/camera/image", Image, display_image_callback, 5)
     # prevents node from dying until explicitly killed
     rospy.spin()
 
