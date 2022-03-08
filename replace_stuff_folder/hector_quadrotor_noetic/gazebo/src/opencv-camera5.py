@@ -33,7 +33,7 @@ def img_callback(data):
     cv_image = bridge.imgmsg_to_cv2(data, "bgr8")
     bgr2rgb = cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB)
     real_image = PIL_img.fromarray(bgr2rgb)
-    yolov5_detection.run_detection(real_image, yolov5_detection.model, pub, 5)
+    # yolov5_detection.run_detection(real_image, yolov5_detection.model, pub, 5)
     # print("Camera booted!")
     cv2.imshow("Raw Image 5", cv_image)
     cv2.waitKey(3)

@@ -13,11 +13,11 @@ import os
 from  PIL import Image
 import numpy as np
 
-homedir = str(et.io.HOME)
-torch.hub._validate_not_a_forked_repo=lambda a,b,c: True
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = torch.hub.load('ultralytics/yolov5', 'custom', path= homedir + "/catkin_ws/src/hector_quadrotor_noetic/hector_quadrotor/hector_quadrotor_gazebo/launch/src/bestPizza500.pt", force_reload=True)
-model.to(device)
+# homedir = str(et.io.HOME)
+# torch.hub._validate_not_a_forked_repo=lambda a,b,c: True
+# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# model = torch.hub.load('ultralytics/yolov5', 'custom', path= homedir + "/catkin_ws/src/hector_quadrotor_noetic/hector_quadrotor/hector_quadrotor_gazebo/launch/src/bestDoubleBoneless800.pt", force_reload=True)
+# model.to(device)
 
 def run_detection(real_image, model, droneId, publisher=None):
     # Globals    
