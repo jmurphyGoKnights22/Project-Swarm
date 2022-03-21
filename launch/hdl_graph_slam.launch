@@ -15,12 +15,6 @@
   <arg name="enable_robot_odometry_init_guess" default="false" />
   <arg name="robot_odom_frame_id" default="robot_odom" />
 
-  <!-- transformation between lidar and base_link -->
-  <node pkg="tf" type="static_transform_publisher" name="lidar2base_publisher" args="0 0 0 0 3.1415926535897931 0 base_link velodyne 10" />
-
-  <!-- this made it stop yelling at me about not having a tf between odom and base link -->>
-  <node pkg="tf" type="static_transform_publisher" name="odom2base_publisher" args="0 0 0 0 0 0 /odom /base_link 10"/>
-
   <!-- in case you use velodyne_driver, comment out the following line -->
   <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager)" args="manager" output="screen"/>
 
@@ -31,7 +25,7 @@
     <param name="base_link_frame" value="base_link" />
     <!-- distance filter -->
     <param name="use_distance_filter" value="true" />
-    <param name="distance_near_thresh" value="0.1" />
+    <param name="distance_near_thresh" value="0.2" />
     <param name="distance_far_thresh" value="100.0" />
     <!-- NONE, VOXELGRID, or APPROX_VOXELGRID -->
     <param name="downsample_method" value="VOXELGRID" />

@@ -2,14 +2,7 @@ Better way:
 
 sudo apt install ros-noetic-moveit
 
-why did I do it from source before?
-
-reosdep install step will take a while (~15-30 minutes)
-I ran into an error on that step at first, also. I am sure that I messed up my workspace in
-several ways ways trying to figure things out and install all the necessary stuff.
-I ultimately created a fresh empty second catkin workspace to install moveit into, which did allow it to do its thing.
-I then moved the other things to this second workspace and now it is building without errors.
-In short, I don't fully unbderstand what was going wrong, but my solution seems to have been sufficient so far.
+why did I do it from source before? Anyway, those instructions are still below
 
 instructions from https://moveit.ros.org/install/source/
 

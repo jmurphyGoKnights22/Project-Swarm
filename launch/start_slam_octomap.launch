@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<launch>
+  <!-- start SLAM -->
+  <include file="$(find Project-Swarm)/launch/hdl_graph_slam.launch" >
+    <arg name="robot_odom_frame_id" value="/odom" />
+    <arg name="enable_floor_detection" value="true" />
+  </include>
+
+  <!-- start octomap -->
+  <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
+        <param name="pointcloud_min_z" value="1"/>
+        <param name="pointcloud_max_z" value="4"/>
+
+		<param name="resolution" value="0.125" />
+		
+		<!-- fixed map frame (set to 'map' if SLAM or localization running!) -->
+		<param name="frame_id" type="string" value="map" />
+		
+		<!-- maximum range to integrate (speedup!) -->
+		<param name="sensor_model/max_range" value="30.0" />
+		
+		<!-- data source to integrate (PointCloud2) -->
+		<remap from="cloud_in" to="/velodyne_points" />
+	</node>
+</launch>
