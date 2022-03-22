@@ -28,7 +28,7 @@ squint_at_him_pub = None
 # Set device to cuda or CPU, Load custom YOLOv5 model and weights, Link device to loaded model
 torch.hub._validate_not_a_forked_repo=lambda a,b,c: True
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = torch.hub.load('ultralytics/yolov5', 'custom', path= homedir + "/catkin_ws/src/hector_quadrotor_noetic/hector_quadrotor/hector_quadrotor_gazebo/launch/src/bestPizza500.pt", force_reload=True)
+model = torch.hub.load('ultralytics/yolov5', 'custom', path= homedir + "/catkin_ws/src/Project-Swarm/replace_stuff_folder/hector_quadrotor_noetic/gazebo/src/bestDoubleBoneless800.pt", force_reload=True)
 model.to(device)
 
 def img_callback(data, cam_num):
