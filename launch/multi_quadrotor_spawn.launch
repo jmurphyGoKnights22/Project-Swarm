@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<launch>
+    <group ns="uav1">
+        <include file="$(find Project-Swarm)/launch/quadrotor.launch">
+            <arg name="name" value="uav1"/>
+        </include>
+    </group>
+</launch>
