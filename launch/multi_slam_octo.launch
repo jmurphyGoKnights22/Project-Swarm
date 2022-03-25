@@ -2,9 +2,9 @@
 <!-- You Know This Is Working If World Is Loaded In And Drone Is Generating Octomap -->
 <launch>
     <!-- Create UAV Groups -->
-    <group ns="uav1">
+    <group ns="uav1"> 
         <include file="$(find Project-Swarm)/launch/start_slam_octomap.launch">
             <arg name="name" value="uav1"/>
         </include>
-    </group>
+    </group> 
 </launch>
