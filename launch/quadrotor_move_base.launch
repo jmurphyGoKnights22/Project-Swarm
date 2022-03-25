@@ -1,6 +1,8 @@
 <launch>
+  <!-- Multi Swarm Param Change -->
+  <arg name="name"   default="uav1"/>
   <arg name="odom_frame_id"   default="odom"/>
-  <arg name="base_frame_id"   default="base_link"/>
+  <arg name="base_frame_id"   default="$(arg name)/base_link"/>
   <arg name="global_frame_id" default="map"/>
   <arg name="odom_topic" default="/odom" />
   <arg name="cloud_topic" default="/velodyne_points" />
@@ -19,11 +21,13 @@
     <!-- reset frame_id parameters using user input data -->
     <param name="global_costmap/global_frame" value="$(arg global_frame_id)"/>
     <param name="global_costmap/robot_base_frame" value="$(arg base_frame_id)"/>
+    <param name="global_costmap/obstacle_layer/cloud/topic" value="$(arg cloud_topic)"/>
     <param name="local_costmap/global_frame" value="$(arg odom_frame_id)"/>
     <param name="local_costmap/robot_base_frame" value="$(arg base_frame_id)"/>
+    <param name="local_costmap/obstacle_layer/cloud/topic" value="$(arg cloud_topic)"/>
     <param name="DWAPlannerROS/global_frame_id" value="$(arg odom_frame_id)"/>
 
-    <remap from="cmd_vel" to="/cmd_vel"/>
+    <remap from="cmd_vel" to="/$(arg name)/cmd_vel"/>
     <remap from="odom" to="$(arg odom_topic)"/>
     <remap from="cloud" to="$(arg cloud_topic)"/>
     <remap from="map" to="$(arg map_topic)"/>

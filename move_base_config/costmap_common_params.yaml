@@ -23,7 +23,7 @@ obstacle_layer:
   #z_voxels: 2
   publish_voxel_map: false
   observation_sources:  cloud
-  cloud: {data_type: PointCloud, topic: /velodyne_points, marking: true, clearing: true, inf_is_valid: true}
+  cloud: {data_type: PointCloud,  marking: true, clearing: true, inf_is_valid: true}
 
 #cost_scaling_factor and inflation_radius were now moved to the inflation_layer ns
 inflation_layer:
