@@ -9,4 +9,12 @@
             <arg name="map_topic" value="/uav1/projected_map" />
         </include>
     </group> 
+    <group ns="uav2"> 
+        <include file="$(find Project-Swarm)/launch/quadrotor_move_base.launch">
+            <arg name="name" value="uav2"/>
+            <arg name="base_frame_id"   value="uav2/base_link"/>
+            <arg name="cloud_topic" value="/uav2/velodyne_points" />
+            <arg name="map_topic" value="/uav2/projected_map" />
+        </include>
+    </group> 
 </launch>
