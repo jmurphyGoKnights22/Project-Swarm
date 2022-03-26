@@ -14,7 +14,7 @@
   <node pkg="tf" type="static_transform_publisher" name="world2map_publisher" args="0 0 0 0 0 0 /world /map 10"/>
 
   
-  <!-- Start slam and octomap separately to avoid a strange issue that otherwise sees walls that don't exist right away at spawn time -->>
+  <!-- Start slam and octomap separately to avoid a strange issue that otherwise sees walls that don't exist right away at spawn time -->
   
 
   <!-- Start rviz visualization with preset config -->
