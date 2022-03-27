@@ -177,7 +177,7 @@
     <param name="map_cloud_resolution" value="0.05" />
   </node>
 
-  <node pkg="hdl_graph_slam" type="map2odom_publisher.py" name="map2odom_publisher" >
+  <node pkg="Project-Swarm" type="map2odom_publisher.py" name="map2odom_publisher" >
     <remap from="/odom" to="/$(arg name)/odom"/>
     <remap from="/hdl_graph_slam/odom2pub" to="/$(arg name)/hdl_graph_slam/odom2pub"/>
     <remap from="/hdl_graph_slam/map_points" to="/$(arg name)/hdl_graph_slam/map_points"/>
