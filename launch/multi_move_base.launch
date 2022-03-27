@@ -11,7 +11,7 @@
             <arg name="odom_frame_id"   value="uav1/odom"/>
         </include>
     </group> 
-    <!-- <group ns="uav2"> 
+    <group ns="uav2"> 
         <include file="$(find Project-Swarm)/launch/quadrotor_move_base.launch">
             <arg name="name" value="uav2"/>
             <arg name="base_frame_id"   value="uav2/base_link"/>
@@ -20,5 +20,5 @@
             <arg name="odom_topic" default="/uav2/odom" />
             <arg name="odom_frame_id"   value="uav2/odom"/>
         </include>
-    </group> -->
+    </group>
 </launch>
