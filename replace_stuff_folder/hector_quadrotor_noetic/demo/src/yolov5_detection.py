@@ -1,5 +1,10 @@
 #! /usr/bin/env python3
 
+import rospy
+
+
+import rospy
+from std_msgs.msg import Bool
 import sys
 sys.path.append("./yolov5/models/")
 import torch
@@ -7,13 +12,13 @@ import os
 from  PIL import Image
 import numpy as np
 
-def run_detection(real_image, model):
+def run_detection(real_image, model, publisher):
     # Globals    
     SCORE_THRESHOLD = 0.5
 
     # Verify our current Directory, Check if cuda is available for NVIDIA GPUs, else CPU (RIP AMD)
-    print("Current Directory Scope: " + os.getcwd() + "\n")
-    print("cuda is availible?: " + str(torch.cuda.is_available()))
+    # print("Current Directory Scope: " + os.getcwd() + "\n")
+    # print("cuda is availible?: " + str(torch.cuda.is_available()))
 
     # Set device to cuda or CPU, Load custom YOLOv5 model and weights, Link device to loaded model
 
@@ -40,12 +45,21 @@ def run_detection(real_image, model):
     confidence = result.xyxyn[0][:, -2]
     print("Confidence Score Tensor: " + str(confidence))
 
-    # Below might have a better option to reduce runtime for a O(1) comparison instead of doing a type conversion first
+    # If we get a True Negative, return false since we arent even looking at something that *might* be bb8
+    if len(confidence) == 0:
+        print("\n")
+        found_bb8 = False # redundant, but self documenting line
+        return found_bb8, result
 
-    # If we get a True Negative, feature map confidence to negative
-    if str(confidence) == "tensor([])":
-        confidence = -1
+    # This will break if we see more than one thing with a non zero confididence of it being bb8. will only take the first item
+    extracted_confidence = confidence[0]
+    if extracted_confidence >= 0.5:
+        print("KILL HIM! KILL HIM NOW!" + ")\n")
+        found_bb8 = True
+        return found_bb8, result
+    else: 
+        print("HAHA, I'M IN DANGER " + ")\n")
+        found_bb8 = False
+        return False, result
     
-    # Print the boolean result if we have a score > SCORE_THRESHOLD.
-    print("Did we find BB8?: " + (str(True) if confidence > SCORE_THRESHOLD else str(False)))
 
