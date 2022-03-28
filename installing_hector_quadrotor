@@ -1,0 +1,4 @@
+git clone https://github.com/ros-geographic-info/unique_identifier.git
+git clone https://github.com/ros-geographic-info/geographic_info.git
+git clone https://github.com/RAFALAMAO/hector_quadrotor_noetic.git
+git clone https://github.com/ros-teleop/teleop_twist_keyboard

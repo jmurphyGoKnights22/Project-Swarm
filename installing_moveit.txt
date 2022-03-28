@@ -1,0 +1,18 @@
+Better way:
+
+sudo apt install ros-noetic-moveit
+
+why did I do it from source before? Anyway, those instructions are still below
+
+instructions from https://moveit.ros.org/install/source/
+
+source /opt/ros/noetic/setup.bash
+wstool init src
+wstool merge -t src https://raw.githubusercontent.com/ros-planning/moveit/master/moveit.rosinstall
+wstool update -t src
+rosdep install -y --from-paths src --ignore-src --rosdistro ${ROS_DISTRO}
+catkin config --extend /opt/ros/${ROS_DISTRO} --cmake-args -DCMAKE_BUILD_TYPE=Release
+sudo apt install ccache
+echo 'export PATH=/usr/lib/ccache:$PATH' >> $HOME/.bashrc
+source $HOME/.bashrc
+catkin build

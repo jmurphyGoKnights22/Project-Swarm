@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<launch>
+  <!-- Multi Robot Param Change Name And Starting Y Location-->
+  <arg name="name" default="uav1"/>
+  <arg name="location" default="0"/>
+  <!-- Spawn simulated quadrotor uav -->
+  <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch" >
+    <arg name="model" value="$(find Project-Swarm)/urdf/quadrotor_hdl32e.gazebo.xacro"/>
+
+    <!-- this messes up depending on machine, sebastian:good, andrew:bad -->
+    <arg name="use_ground_truth_for_tf" value="true" />
+    <!-- Multi Robot Param Change -->
+    <arg name="tf_prefix" value = "$(arg name)" />
+    <arg name="x" value="0.0"/>
+    <arg name="y" value="$(arg location)"/>
+    <arg name="z" value="0.25"/>
+    <arg name="name" value="$(arg name)"/>
+  </include>
+
+  <!-- provide a transform between world and map -->
+  <!-- <node pkg="tf" type="static_transform_publisher" name="world2map_publisher" args="0 0 0 0 0 0 /world /map 10"/> -->
+  <!-- Start slam and octomap separately to avoid a strange issue that otherwise sees walls that don't exist right away at spawn time -->
+  <!--node pkg="Project-Swarm" type="opencv-camera.py" name="start_camera" output="screen"/-->
+</launch>

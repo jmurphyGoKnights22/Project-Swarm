@@ -1,0 +1,13 @@
+<!-- Create UAV Groups -->
+<launch>
+    <group ns="uav1"> 
+        <include file="$(find Project-Swarm)/launch/explore_costmap.launch">
+            <arg name="name" value="uav1"/>
+        </include>
+    </group> 
+    <!-- <group ns="uav2"> 
+        <include file="$(find Project-Swarm)/launch/explore_costmap.launch">
+            <arg name="name" value="uav2"/>
+        </include>
+    </group> -->
+</launch>
