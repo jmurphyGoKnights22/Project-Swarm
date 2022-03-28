@@ -1,14 +1,25 @@
 <?xml version="1.0"?>
 
 <launch>
+  <!-- Multi Drone Parameter-->
+  <arg name="name" default="uav1"/>
   <!-- start SLAM -->
   <include file="$(find Project-Swarm)/launch/hdl_graph_slam.launch" >
-    <arg name="robot_odom_frame_id" value="/odom" />
-    <arg name="enable_floor_detection" value="true" />
+    <arg name="robot_odom_frame_id" value="$(arg name)/odom" />
+    <arg name="enable_floor_detection" value="false" />
+    <arg name="name" value="$(arg name)" />
+    <arg name="points_topic" value="/$(arg name)/velodyne_points" />
+    <arg name="lidar_odom_frame_id" value="$(arg name)/odom" />
+    <!--<remap from="/hdl_graph_slam/map_points" to="/$(arg name)/hdl_graph_slam/map_points"/>
+    <remap from="/hdl_graph_slam/markers" to="/$(arg name)/hdl_graph_slam/markers"/>
+    <remap from="/hdl_graph_slam/odom2pub" to="/$(arg name)/hdl_graph_slam/odom2pub"/>
+    <remap from="/hdl_graph_slam/read_until" to="/$(arg name)/hdl_graph_slam/read_until"/>
+    <remap from="/odom" to="/$(arg name)/odom"/>-->
   </include>
-
+  
   <!-- start octomap -->
   <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
+
     <param name="pointcloud_min_z" value="1.0"/>
     <param name="pointcloud_max_z" value="5"/>
 
@@ -21,6 +32,6 @@
 		<param name="sensor_model/max_range" value="50.0" />
 		
 		<!-- data source to integrate (PointCloud2) -->
-		<remap from="cloud_in" to="/velodyne_points" />
+		<remap from="cloud_in" to="/$(arg name)/velodyne_points" />
 	</node>
 </launch>
