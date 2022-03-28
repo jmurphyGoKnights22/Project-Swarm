@@ -11,14 +11,14 @@
   </include>
 
   <!-- provide a transform between world and map -->
-  <node pkg="tf" type="static_transform_publisher" name="world2map_publisher" args="0 0 0 0 0 0 /world /map 10"/>
+  <!--node pkg="tf" type="static_transform_publisher" name="world2map_publisher" args="0 0 0 0 0 0 /world /map 10"/-->
 
   
   <!-- Start slam and octomap separately to avoid a strange issue that otherwise sees walls that don't exist right away at spawn time -->
   
 
   <!-- Start rviz visualization with preset config -->
-  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find hdl_graph_slam)/rviz/hdl_graph_slam.rviz"/>
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find Project-Swarm)/rviz_cfg/2dnav.rviz"/>
 
   <!--node pkg="Project-Swarm" type="opencv-camera.py" name="start_camera" output="screen"/-->
 </launch>
