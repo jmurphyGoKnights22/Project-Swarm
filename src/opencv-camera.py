@@ -22,7 +22,7 @@ homedir = str(et.io.HOME)
 # Set device to cuda or CPU, Load custom YOLOv5 model and weights, Link device to loaded model
 torch.hub._validate_not_a_forked_repo=lambda a,b,c: True
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = torch.hub.load('ultralytics/yolov5', 'custom', path= homedir + "/catkin_ws/src/Project-Swarm/src/bestDoubleBoneless800.pt", force_reload=True)
+model = torch.hub.load('ultralytics/yolov5', 'custom', path= homedir + "/catkin_ws/src/Project-Swarm/src/3-25V5Best.pt", force_reload=True)
 model.to(device)
 pub = None
 

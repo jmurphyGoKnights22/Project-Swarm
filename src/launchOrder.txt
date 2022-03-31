@@ -1,18 +1,23 @@
-Send a single drone on a set search path in front of thrift shop
+These three launch files will spawn bb8 in a hiding spot. pick one and only one to run before starting your search
+roslaunch Project-Swarm bb8_hiding1.launch
+roslaunch Project-Swarm bb8_hiding2.launch
+roslaunch Project-Swarm bb8_hiding3.launch
+
+Send a single drone on a set search path. It spawns in front of thrift shop.
 
 roslaunch Project-Swarm start_world.launch
 roslaunch hector_quadrotor_demo put_robot_in_world.launch
 rosrun Project-Swarm opencv-camera.py
 rosrun Project-Swarm single_drone_rails.py
 
-Send a single drone on a set search path starting in corner
+Send a single drone on a set search path. It spawns in the corner.
 
 roslaunch Project-Swarm start_world.launch
 roslaunch hector_quadrotor_demo final_single_spawn.launch
-rosrun Project-Swarm opencv-camera.py
+rosrun Project-Swarm opencv-camera1.py
 rosrun Project-Swarm single_drone_rails1.py
 
-send 5 drones on a set search path starting in corner TODO: make five_drone_rails that starts single_drone_rails1, single_drone_rails2, ect...
+Send 5 drones on a set search path. They spawn in the corner TODO: make five_drone_rails.py that starts clock.py and single_drone_rails1.py, single_drone_rails2, ect...
 
 roslaunch Project-Swarm start_world.launch
 roslaunch hector_quadrotor_demo final_five_spawn.launch

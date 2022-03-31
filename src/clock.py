@@ -67,25 +67,27 @@ def Detect_Object():
     Stop()
     #label['text']='Ladies and Gentlemen, we got him.'
 
+def main():
+    # Test Object Detection Function To 
 
-# Test Object Detection Function To 
+    root = Tkinter.Tk()
+    root.title("Swarm Search Timer")
+    
+    # Fixing the window size.
+    root.minsize(width=250, height=70)
+    label = Tkinter.Label(root, text="Welcome!", fg="black", font="Verdana 30 bold")
+    label.pack()
+    f = Tkinter.Frame(root)
+    f.pack(anchor = 'center',pady=5)
 
-root = Tkinter.Tk()
-root.title("Swarm Search Timer")
-   
-# Fixing the window size.
-root.minsize(width=250, height=70)
-label = Tkinter.Label(root, text="Welcome!", fg="black", font="Verdana 30 bold")
-label.pack()
-f = Tkinter.Frame(root)
-f.pack(anchor = 'center',pady=5)
+    # Create 2 threads to navigate and detect objects simultaneously        
+    object_detection_thread = threading.Thread(target=Detect_Object)
 
-# Create 2 threads to navigate and detect objects simultaneously        
-object_detection_thread = threading.Thread(target=Detect_Object)
+    # Start the threads
+    object_detection_thread.start()
 
-# Start the threads
-object_detection_thread.start()
+    Start(label) 
+    root.mainloop()
 
-Start(label) 
-root.mainloop()
-
+if __name__=="__main__":
+    main()
