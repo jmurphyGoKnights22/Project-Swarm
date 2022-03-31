@@ -31,7 +31,7 @@ def img_callback(data):
     cv_image = bridge.imgmsg_to_cv2(data, "bgr8")
     bgr2rgb = cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB)
     real_image = PIL_img.fromarray(bgr2rgb)
-    found_bb8, results = yolov5_detection.run_detection(real_image, model, pub)
+    found_bb8, results, squint_bb8 = yolov5_detection.run_detection(real_image, model, -1)
     possible_bounding_boxes = results.xyxyn[0][:,:-1]
     for i in possible_bounding_boxes:
         # cv2.rectangle(img, pt1, pt2, color, thickness, lineType, shift)

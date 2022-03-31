@@ -28,17 +28,20 @@ squint_at_him_pub = None
 # Set device to cuda or CPU, Load custom YOLOv5 model and weights, Link device to loaded model
 torch.hub._validate_not_a_forked_repo=lambda a,b,c: True
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = torch.hub.load('ultralytics/yolov5', 'custom', path= homedir + "/catkin_ws/src/hector_quadrotor_noetic/hector_quadrotor/hector_quadrotor_gazebo/launch/src/bestPizza500.pt", force_reload=True)
+model = torch.hub.load('ultralytics/yolov5', 'custom', path= homedir + "/catkin_ws/src/Project-Swarm/src/bestDoubleBoneless800.pt", force_reload=True)
 model.to(device)
 
 def img_callback(data, cam_num):
     cv_image = bridge.imgmsg_to_cv2(data, "bgr8")
     bgr2rgb = cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB)
     real_image = PIL_img.fromarray(bgr2rgb)
-    found_bb8 = yolov5_detection.run_detection(real_image, model, cam_num, squint_at_him_pub)
+    found_bb8, results, squint_bb8 = yolov5_detection.run_detection(real_image, model, cam_num)
     if found_bb8:
         shoot_him_pub.publish(Int16(cam_num))
-        print("BB* found on cam " + str(cam_num) + "!!")
+        print("BB8 found on cam " + str(cam_num) + "!!")
+    if squint_bb8:
+        squint_at_him_pub.publish(Int16(cam_num))
+        print("squint on cam " + cam_num)
 
 
 def main():

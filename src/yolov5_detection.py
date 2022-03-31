@@ -12,9 +12,10 @@ import os
 from  PIL import Image
 import numpy as np
 
-def run_detection(real_image, model, publisher):
+def run_detection(real_image, model, cam_num):
     # Globals    
     SCORE_THRESHOLD = 0.5
+    print_results = False
 
     # Verify our current Directory, Check if cuda is available for NVIDIA GPUs, else CPU (RIP AMD)
     # print("Current Directory Scope: " + os.getcwd() + "\n")
@@ -43,23 +44,28 @@ def run_detection(real_image, model, publisher):
 
     # Isolate the confidence score
     confidence = result.xyxyn[0][:, -2]
-    print("Confidence Score Tensor: " + str(confidence))
+    if print_results:
+        print("Confidence Score Tensor: " + str(confidence))
 
     # If we get a True Negative, return false since we arent even looking at something that *might* be bb8
     if len(confidence) == 0:
-        print("\n")
         found_bb8 = False # redundant, but self documenting line
-        return found_bb8, result
+        squint_bb8 = False
+        return found_bb8, result, squint_bb8
 
     # This will break if we see more than one thing with a non zero confididence of it being bb8. will only take the first item
     extracted_confidence = confidence[0]
     if extracted_confidence >= 0.5:
-        print("KILL HIM! KILL HIM NOW!" + ")\n")
+        if print_results: 
+            print("Drone " + cam_num + ": KILL HIM! KILL HIM NOW!" + ")\n")
         found_bb8 = True
-        return found_bb8, result
+        squint_bb8 = False
+        return found_bb8, result, squint_bb8
     else: 
-        print("HAHA, I'M IN DANGER " + ")\n")
+        if print_results: 
+            print("Drone " + cam_num + ": HAHA, I'M IN DANGER " + ")\n")
         found_bb8 = False
-        return False, result
+        squint_bb8 = True
+        return False, result, squint_bb8
     
 

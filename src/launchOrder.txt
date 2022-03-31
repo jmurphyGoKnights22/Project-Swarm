@@ -10,7 +10,7 @@ Send a single drone on a set search path starting in corner
 roslaunch Project-Swarm start_world.launch
 roslaunch hector_quadrotor_demo final_single_spawn.launch
 rosrun Project-Swarm opencv-camera.py
-rosrun Project-Swarm single_drone_rails.py
+rosrun Project-Swarm single_drone_rails1.py
 
 send 5 drones on a set search path starting in corner TODO: make five_drone_rails that starts single_drone_rails1, single_drone_rails2, ect...
 
