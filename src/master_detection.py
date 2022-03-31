@@ -39,6 +39,13 @@ def img_callback(data, cam_num):
     if found_bb8:
         shoot_him_pub.publish(Int16(cam_num))
         print("BB8 found on cam " + str(cam_num) + "!!")
+        # this will open a window with the camera feed and draw a rectangle on what the drone thinks is BB8 when we find him
+        possible_bounding_boxes = results.xyxyn[0][:,:-1]
+        for i in possible_bounding_boxes:
+            # cv2.rectangle(img, pt1, pt2, color, thickness, lineType, shift)
+            cv2.rectangle(cv_image, (int(i[0]*512), int(i[1]*512)), (int(i[2]*512), int(i[3]*512)), (255, 0, 0), 2)
+        cv2.imshow("Raw Image", cv_image)
+        cv2.waitKey(3)
     if squint_bb8:
         squint_at_him_pub.publish(Int16(cam_num))
         print("squint on cam " + cam_num)
