@@ -10,7 +10,7 @@ def found_callback(message):
     isFound = True
 
 def main():
-    print("Begining rails search in single_drone_rails.py")
+    print("Begining rails search in single_drone_rails2.py")
     rospy.init_node('single_rails_search')
     pub = rospy.Publisher('uav2/cmd_vel', Twist, queue_size=10)
     # this will stop the search when something is found
