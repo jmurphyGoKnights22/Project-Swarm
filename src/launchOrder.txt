@@ -1,4 +1,5 @@
 These three launch files will spawn bb8 in a hiding spot. pick one and only one to run before starting your search
+
 roslaunch Project-Swarm bb8_hiding1.launch
 roslaunch Project-Swarm bb8_hiding2.launch
 roslaunch Project-Swarm bb8_hiding3.launch
@@ -20,6 +21,6 @@ rosrun Project-Swarm single_drone_rails1.py
 Send 5 drones on a set search path. They spawn in the corner TODO: make five_drone_rails.py that starts clock.py and single_drone_rails1.py, single_drone_rails2, ect...
 
 roslaunch Project-Swarm start_world.launch
-roslaunch hector_quadrotor_demo final_five_spawn.launch
+roslaunch hector_quadrotor_gazebo final_five_spawn.launch
 rosrun Project-Swarm master_detection.py
 rosrun Project-Swarm five_drone_rails.py
