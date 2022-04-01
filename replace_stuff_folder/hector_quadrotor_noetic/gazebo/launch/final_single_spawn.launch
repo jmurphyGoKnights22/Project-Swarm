@@ -13,6 +13,5 @@
      </include>
    </group>
 
-   <node pkg="hector_quadrotor_gazebo" type="object_detection_node.py" name="object_detection" output="screen"/>
 </launch>
 

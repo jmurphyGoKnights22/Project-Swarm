@@ -86,6 +86,7 @@
     <mu2>0.2</mu2>
   </gazebo>
 
+  <!-- this one right here officer -->
   <gazebo>
     <plugin name="bb_8_gazebo_plugin" filename="libgazebo_bb_8_controller.so">
       <alwaysOn>true</alwaysOn>
@@ -102,6 +103,7 @@
       <robotBaseFrame>base_link</robotBaseFrame>
     </plugin>
   </gazebo>
+  
 
   <!-- camera -->
   <gazebo reference="camera_link">
