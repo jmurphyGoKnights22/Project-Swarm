@@ -9,7 +9,7 @@
     <arg name="model" value="$(find Project-Swarm)/urdf/quadrotor_hdl32e.gazebo.xacro"/>
 
     <!-- this messes up depending on machine, sebastian:good, andrew:bad -->
-    <arg name="use_ground_truth_for_tf" value="true" />
+    <arg name="use_ground_truth_for_tf" value="false" />
     <!-- Multi Robot Param Change -->
     <arg name="tf_prefix" value = "$(arg name)" />
     <arg name="x" value="0.0"/>
