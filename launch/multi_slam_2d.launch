@@ -11,4 +11,14 @@
             <arg name="name" value="uav2"/>
         </include>
     </group>
+    <group ns="uav3">
+        <include file="$(find Project-Swarm)/launch/slam_2d.launch">
+            <arg name="name" value="uav3"/>
+        </include>
+    </group>
+    <group ns="uav4">
+        <include file="$(find Project-Swarm)/launch/slam_2d.launch">
+            <arg name="name" value="uav4"/>
+        </include>
+    </group>
 </launch>

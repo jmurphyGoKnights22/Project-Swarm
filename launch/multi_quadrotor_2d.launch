@@ -5,7 +5,7 @@
         <include file="$(find Project-Swarm)/launch/spawn_quadrotor_hokuyo.launch">
             <arg name="name" value="uav1"/>
             <arg name="tf_prefix" value="uav1"/>
-            <arg name="use_ground_truth_for_tf" value="false"/>
+            <arg name="use_ground_truth_for_tf" value="true"/>
         </include>
     </group>
     <group ns="uav2">
@@ -13,7 +13,25 @@
             <arg name="name" value="uav2"/>
             <arg name="tf_prefix" value="uav2"/>
             <arg name="x" value="1.0"/>
-            <arg name="use_ground_truth_for_tf" value="false"/>
+            <arg name="use_ground_truth_for_tf" value="true"/>
+            <arg name="spawn_rviz" value="false"/>
+        </include>
+    </group>
+    <group ns="uav3">
+        <include file="$(find Project-Swarm)/launch/spawn_quadrotor_hokuyo.launch">
+            <arg name="name" value="uav3"/>
+            <arg name="tf_prefix" value="uav3"/>
+            <arg name="x" value="2.0"/>
+            <arg name="use_ground_truth_for_tf" value="true"/>
+            <arg name="spawn_rviz" value="false"/>
+        </include>
+    </group>
+    <group ns="uav4">
+        <include file="$(find Project-Swarm)/launch/spawn_quadrotor_hokuyo.launch">
+            <arg name="name" value="uav4"/>
+            <arg name="tf_prefix" value="uav4"/>
+            <arg name="x" value="3.0"/>
+            <arg name="use_ground_truth_for_tf" value="true"/>
             <arg name="spawn_rviz" value="false"/>
         </include>
     </group>

@@ -16,13 +16,15 @@
       <rosparam file="$(find Project-Swarm)/move_base_config_2d/navfn_global_planner_params.yaml" command="load" />
 
       <!-- Set tf_prefix for frames explicity, overwriting defaults -->
-      <param name="global_costmap/scan/sensor_frame" value="$(arg name)/laser0_frame"/>
-      <param name="local_costmap/scan/sensor_frame" value="$(arg name)/laser0_frame"/>
-
       <param name="global_costmap/obstacle_layer/scan/sensor_frame"
 	     value="$(arg name)/laser0_frame"/>
       <param name="local_costmap/obstacle_layer/scan/sensor_frame"
 	     value="$(arg name)/laser0_frame"/>
+
+      <param name="global_costmap/obstacle_layer/scan/topic"
+	     value="$(arg name)/scan"/>
+      <param name="local_costmap/obstacle_layer/scan/topic"
+	     value="$(arg name)/scan"/>
 
       <param name="global_costmap/global_frame" value="$(arg name)/map"/>
       <param name="local_costmap/global_frame" value="$(arg name)/map"/>
