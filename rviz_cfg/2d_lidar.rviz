@@ -65,7 +65,7 @@ Visualization Manager:
       Color: 255; 255; 255
       Color Transformer: Intensity
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Min Color: 0; 0; 0
@@ -80,7 +80,7 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
-      Value: true
+      Value: false
     - Class: rviz/Image
       Enabled: true
       Image Topic: /uav1/front_cam/camera/image
@@ -266,22 +266,22 @@ Visualization Manager:
       Class: rviz/Map
       Color Scheme: map
       Draw Behind: false
-      Enabled: false
+      Enabled: true
       Name: Map
       Topic: /uav3/map
       Unreliable: false
       Use Timestamp: false
-      Value: false
+      Value: true
     - Alpha: 0.699999988079071
       Class: rviz/Map
       Color Scheme: map
       Draw Behind: false
-      Enabled: false
+      Enabled: true
       Name: Map
       Topic: /uav4/map
       Unreliable: false
       Use Timestamp: false
-      Value: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -310,7 +310,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 114.4595718383789
+      Distance: 15.133682250976562
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -318,17 +318,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 19.86747169494629
-        Y: 4.686230182647705
-        Z: -1.3571951389312744
+        X: 2.419827461242676
+        Y: -5.206477165222168
+        Z: -8.6921968460083
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.9603980779647827
+      Pitch: 1.0653979778289795
       Target Frame: <Fixed Frame>
-      Yaw: 3.1285738945007324
+      Yaw: 2.0035715103149414
     Saved: ~
 Window Geometry:
   Displays:
