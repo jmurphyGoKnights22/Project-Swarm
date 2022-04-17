@@ -235,13 +235,13 @@ Visualization Manager:
       Update Interval: 0
       Value: true
     - Class: rviz/MarkerArray
-      Enabled: false
+      Enabled: true
       Marker Topic: /uav1/explore/frontiers
       Name: MarkerArray
       Namespaces:
-        {}
+        frontiers: true
       Queue Size: 100
-      Value: false
+      Value: true
     - Alpha: 0.699999988079071
       Class: rviz/Map
       Color Scheme: map
@@ -312,7 +312,7 @@ Visualization Manager:
       X std deviation: 0.5
       Y std deviation: 0.5
     - Class: rviz/SetGoal
-      Topic: /uav1/move_base_simple/goal
+      Topic: /uav3/move_base_simple/goal
     - Class: rviz/PublishPoint
       Single click: true
       Topic: /clicked_point
@@ -320,7 +320,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 39.92523956298828
+      Distance: 70.69728088378906
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -328,17 +328,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.62523353099823
-        Y: -8.674781799316406
-        Z: -1.2039971351623535
+        X: -0.7714576721191406
+        Y: 2.241820812225342
+        Z: 12.134149551391602
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.710398256778717
+      Pitch: 0.7703980207443237
       Target Frame: <Fixed Frame>
-      Yaw: 2.0385708808898926
+      Yaw: 1.2799179553985596
     Saved: ~
 Window Geometry:
   Displays:

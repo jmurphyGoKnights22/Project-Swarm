@@ -3,12 +3,15 @@ robot_radius: 0.55  # distance a circular robot should be clear of the obstacle 
 # footprint: [[x0, y0], [x1, y1], ... [xn, yn]]  # if the robot is not circular
 
 obstacle_layer:
+  update_frequency:     5.0
   enabled:              true
+  inf_is_valid: true
+  combination_method: 1
   track_unknown_space:  true    #true needed for disabling global path planning through unknown space
-  obstacle_range: 3.5
-  raytrace_range: 3.0
+  obstacle_range: 5.0
+  raytrace_range: 20.0
   observation_sources:  scan
-  scan: {sensor_frame: laser0_frame, data_type: LaserScan, topic: /scan, marking: true, clearing: true, inf_is_valid: true}
+  scan: {sensor_frame: laser0_frame, data_type: LaserScan, topic: /scan, marking: true, clearing: true, inf_is_valid: true, obstacle_range: 5.0, raytrace_range: 20.0}
 
 
 #cost_scaling_factor and inflation_radius were now moved to the inflation_layer ns
@@ -16,8 +19,8 @@ inflation_layer:
   enabled:              true
   cost_scaling_factor:  10.0  # exponential rate at which the obstacle cost drops off (default: 10)
   inflation_radius:     1.0  # max. distance from an obstacle at which costs are incurred for planning paths.
-  update_frequency:     2.0
+  update_frequency:     5.0
 
 static_layer:
   enabled:              true
-  update_frequency:     2.0
+  update_frequency:     5.0

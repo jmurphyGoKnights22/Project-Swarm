@@ -22,9 +22,9 @@
 	     value="$(arg name)/laser0_frame"/>
 
       <param name="global_costmap/obstacle_layer/scan/topic"
-	     value="$(arg name)/scan"/>
+	     value="/$(arg name)/scan"/>
       <param name="local_costmap/obstacle_layer/scan/topic"
-	     value="$(arg name)/scan"/>
+	     value="/$(arg name)/scan"/>
 
       <param name="global_costmap/global_frame" value="$(arg name)/map"/>
       <param name="local_costmap/global_frame" value="$(arg name)/map"/>
