@@ -1,14 +1,14 @@
 All ROSLAUNCH and ROSRUN should be in separate terminals (1 for each rosrun and 1 for each roslaunch)
 
-roslaunch Project-Swarm only_world.launch
-roslaunch Project-Swarm multi_quadrotor_spawn.launch
-roslaunch Project-Swarm multi_slam_octo.launch
-roslaunch Project-Swarm multi_move_base.launch
+roslaunch Project-Swarm start_world.launch
+roslaunch Project-Swarm multi_quadrotor_2d.launch
+roslaunch Project-Swarm multi_slam_2d.launch
+roslaunch Project-Swarm multi_move_base_2d.launch
 
 (Lift Both Robots To Different Altitudes Using These TeleOp Commands)
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/uav1/cmd_vel
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/uav2/cmd_vel
 (Now hold T for a few seconds to move bot up and press G to stop it, ensure all drones are on different altitudes)
 
-
+rosrun Project-Swarm master_detection.py
 roslaunch Project-Swarm multi_explore.launch
