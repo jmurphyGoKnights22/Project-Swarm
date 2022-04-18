@@ -1,6 +1,6 @@
 All ROSLAUNCH and ROSRUN should be in separate terminals (1 for each rosrun and 1 for each roslaunch)
 
-roslaunch Project-Swarm start_world.launch
+roslaunch Project-Swarm bb8_and_world.launch
 roslaunch Project-Swarm multi_quadrotor_2d.launch
 roslaunch Project-Swarm multi_slam_2d.launch
 roslaunch Project-Swarm multi_move_base_2d.launch

@@ -14,7 +14,7 @@ import numpy as np
 
 def run_detection(real_image, model, cam_num):
     # Globals    
-    SCORE_THRESHOLD = 0.85
+    SCORE_THRESHOLD = 0.75
     print_results = False
 
     # Verify our current Directory, Check if cuda is available for NVIDIA GPUs, else CPU (RIP AMD)

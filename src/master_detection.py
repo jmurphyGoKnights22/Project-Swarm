@@ -38,7 +38,7 @@ def img_callback(data, cam_num):
     found_bb8, results, squint_bb8 = yolov5_detection.run_detection(real_image, model, cam_num)
     if found_bb8:
         shoot_him_pub.publish(Int16(cam_num))
-        print("BB8 found on cam " + str(cam_num) + "!!")
+        print("BB8 found on cam " + str(cam_num) + "!!" + " confidence: " + str(results.xyxyn[0][:, -2]))
         # this will open a window with the camera feed and draw a rectangle on what the drone thinks is BB8 when we find him
         possible_bounding_boxes = results.xyxyn[0][:,:-1]
         for i in possible_bounding_boxes:
@@ -48,7 +48,7 @@ def img_callback(data, cam_num):
         cv2.waitKey(3)
     if squint_bb8:
         squint_at_him_pub.publish(Int16(cam_num))
-        print("squint on cam " + str(cam_num))
+        print("squint on cam " + str(cam_num) + " with confidence " + str(results.xyxyn[0][:, -2]))
 
 
 def main():

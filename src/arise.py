@@ -20,7 +20,7 @@ def track1():
     # block is about 85 meters wide too
     # up 2.0 meters in 1 second
     twist = Twist()
-    twist.linear.x = 0.0; twist.linear.y = 0.0; twist.linear.z = 2.0
+    twist.linear.x = 0.0; twist.linear.y = 0.0; twist.linear.z = 3.0
     twist.angular.x = 0.0; twist.angular.y = 0.0; twist.angular.z = 0.0
     pub.publish(twist)
     rospy.sleep(1) # Sleeps for 1 sec
@@ -44,7 +44,7 @@ def track2():
     # block is about 85 meters wide too
     # up 2.5 meters in 1 second
     twist = Twist()
-    twist.linear.x = 0.0; twist.linear.y = 0.0; twist.linear.z = 2.5
+    twist.linear.x = 0.0; twist.linear.y = 0.0; twist.linear.z = 3.5
     twist.angular.x = 0.0; twist.angular.y = 0.0; twist.angular.z = 0.0
     pub.publish(twist)
     rospy.sleep(1) # Sleeps for 1 sec
@@ -68,7 +68,7 @@ def track3():
     # block is about 85 meters wide too
     # up 3 meters in 1 second
     twist = Twist()
-    twist.linear.x = 0.0; twist.linear.y = 0.0; twist.linear.z = 3.0
+    twist.linear.x = 0.0; twist.linear.y = 0.0; twist.linear.z = 4.0
     twist.angular.x = 0.0; twist.angular.y = 0.0; twist.angular.z = 0.0
     pub.publish(twist)
     rospy.sleep(1) # Sleeps for 1 sec
@@ -92,7 +92,7 @@ def track4():
     # block is about 85 meters wide too
     # up 3.5 meters in 1 second
     twist = Twist()
-    twist.linear.x = 0.0; twist.linear.y = 0.0; twist.linear.z = 3.5
+    twist.linear.x = 0.0; twist.linear.y = 0.0; twist.linear.z = 4.5
     twist.angular.x = 0.0; twist.angular.y = 0.0; twist.angular.z = 0.0
     pub.publish(twist)
     rospy.sleep(1) # Sleeps for 1 sec
