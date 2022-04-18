@@ -14,7 +14,7 @@ import numpy as np
 
 def run_detection(real_image, model, cam_num):
     # Globals    
-    SCORE_THRESHOLD = 0.5
+    SCORE_THRESHOLD = 0.85
     print_results = False
 
     # Verify our current Directory, Check if cuda is available for NVIDIA GPUs, else CPU (RIP AMD)
@@ -55,7 +55,7 @@ def run_detection(real_image, model, cam_num):
 
     # This will break if we see more than one thing with a non zero confididence of it being bb8. will only take the first item
     extracted_confidence = confidence[0]
-    if extracted_confidence >= 0.5:
+    if extracted_confidence >= SCORE_THRESHOLD:
         if print_results: 
             print("Drone " + cam_num + ": KILL HIM! KILL HIM NOW!" + ")\n")
         found_bb8 = True

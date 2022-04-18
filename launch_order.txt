@@ -5,10 +5,7 @@ roslaunch Project-Swarm multi_quadrotor_2d.launch
 roslaunch Project-Swarm multi_slam_2d.launch
 roslaunch Project-Swarm multi_move_base_2d.launch
 
-(Lift Both Robots To Different Altitudes Using These TeleOp Commands)
-rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/uav1/cmd_vel
-rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/uav2/cmd_vel
-(Now hold T for a few seconds to move bot up and press G to stop it, ensure all drones are on different altitudes)
+rosrun Project-Swarm begin_arise.py
 
 rosrun Project-Swarm master_detection.py
 roslaunch Project-Swarm multi_explore.launch
