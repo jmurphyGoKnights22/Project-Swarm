@@ -1,0 +1,24 @@
+<!-- This File Initializes Move Base For The Two Drones-->
+<launch>
+    <!-- Create UAV Groups -->
+    <group ns="uav1"> 
+        <include file="$(find Project-Swarm)/launch/quadrotor_move_base.launch">
+            <arg name="name" value="uav1"/>
+            <arg name="base_frame_id"   value="uav1/base_link"/>
+            <arg name="cloud_topic" value="/uav1/velodyne_points" />
+            <arg name="map_topic" value="/uav1/projected_map" />
+            <arg name="odom_topic" value="/uav1/odom" />
+            <arg name="odom_frame_id"   value="uav1/odom"/>
+        </include>
+    </group> 
+    <!-- <group ns="uav2"> 
+        <include file="$(find Project-Swarm)/launch/quadrotor_move_base.launch">
+            <arg name="name" value="uav2"/>
+            <arg name="base_frame_id"   value="uav2/base_link"/>
+            <arg name="cloud_topic" value="/uav2/velodyne_points" />
+            <arg name="map_topic" value="/uav2/projected_map" />
+            <arg name="odom_topic" default="/uav2/odom" />
+            <arg name="odom_frame_id"   value="uav2/odom"/>
+        </include>
+    </group> -->
+</launch>

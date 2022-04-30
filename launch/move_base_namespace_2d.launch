@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="name"/>
+
+  <group ns="$(arg name)">
+    <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+      <!-- Default configs form the TB3 repos -->
+      <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+      <rosparam file="$(find Project-Swarm)/move_base_config_2d/costmap_common_params.yaml" command="load" ns="global_costmap" />
+      <rosparam file="$(find Project-Swarm)/move_base_config_2d/costmap_common_params.yaml" command="load" ns="local_costmap" />
+      <rosparam file="$(find Project-Swarm)/move_base_config_2d/local_costmap_params.yaml" command="load" />
+      <rosparam file="$(find Project-Swarm)/move_base_config_2d/global_costmap_params.yaml" command="load" />
+      <rosparam file="$(find Project-Swarm)/move_base_config_2d/move_base_params.yaml" command="load" />
+      <rosparam file="$(find Project-Swarm)/move_base_config_2d/base_local_planner_params.yaml" command="load" />
+      <rosparam file="$(find Project-Swarm)/move_base_config_2d/global_planner_params.yaml" command="load" />
+      <rosparam file="$(find Project-Swarm)/move_base_config_2d/navfn_global_planner_params.yaml" command="load" />
+
+      <!-- Set tf_prefix for frames explicity, overwriting defaults -->
+      <param name="global_costmap/obstacle_layer/scan/sensor_frame"
+	     value="$(arg name)/laser0_frame"/>
+      <param name="local_costmap/obstacle_layer/scan/sensor_frame"
+	     value="$(arg name)/laser0_frame"/>
+
+      <param name="global_costmap/obstacle_layer/scan/topic"
+	     value="/$(arg name)/scan"/>
+      <param name="local_costmap/obstacle_layer/scan/topic"
+	     value="/$(arg name)/scan"/>
+
+      <param name="global_costmap/global_frame" value="$(arg name)/map"/>
+      <param name="local_costmap/global_frame" value="$(arg name)/map"/>
+
+      <param name="global_costmap/robot_base_frame"
+	     value="$(arg name)/base_link"/>
+      <param name="local_costmap/robot_base_frame"
+	     value="$(arg name)/base_link"/>
+
+      <remap from="odom" to="scanmatch_odom"/>
+    </node>
+  </group>
+  
+</launch>

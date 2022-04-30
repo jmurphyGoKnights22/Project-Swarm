@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<launch>
+    <include file="$(find Project-Swarm)/launch/move_base_namespace_2d.launch">
+        <arg name="name" value="uav1"/>
+    </include>
+    <include file="$(find Project-Swarm)/launch/move_base_namespace_2d.launch">
+        <arg name="name" value="uav2"/>
+    </include>
+    <include file="$(find Project-Swarm)/launch/move_base_namespace_2d.launch">
+        <arg name="name" value="uav3"/>
+    </include>
+    <include file="$(find Project-Swarm)/launch/move_base_namespace_2d.launch">
+        <arg name="name" value="uav4"/>
+    </include>
+</launch>
