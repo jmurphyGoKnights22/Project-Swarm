@@ -72,7 +72,7 @@ Now, you will need to build your workspace by navigating to the top level direct
 
 ### Installing Pytorch and CUDA
 
-You will need to install [Pytorch](https://pytorch.org/) for the YOLO object detection to work. You will also need to install (CUDA)[https://developer.nvidia.com/cuda-toolkit] for your machine to utilize your Nividia GPU when running the YOLO object detection model. You will need to match the version of CUDA with the version of Pytorch. One team member used version 10 and another used version 11. CUDA will not work if you dont have a Nividia GPU, and Pytorch is not compadible with the AMD version of CUDA, so if you have an AMD card, or no GPU at all, then download the CPU version of Pytorch and hope your CPU is able to run it all on its own. It probably wont be able to, but you may try if you want to. 
+You will need to install [Pytorch](https://pytorch.org/) for the YOLO object detection to work. You will also need to install [CUDA](https://developer.nvidia.com/cuda-toolkit) for your machine to utilize your Nividia GPU when running the YOLO object detection model. You will need to match the version of CUDA with the version of Pytorch. One team member used version 10 and another used version 11. CUDA will not work if you dont have a Nividia GPU, and Pytorch is not compadible with the AMD version of CUDA, so if you have an AMD card, or no GPU at all, then download the CPU version of Pytorch and hope your CPU is able to run it all on its own. It probably wont be able to, but you may try if you want to. 
 
 We used [this video tutorial](https://www.youtube.com/watch?v=4gcqGxBIUnc&ab_channel=PinkLAB) when installing CUDA on ubuntu. It is much easier on windows than Ubuntu, but unfortunately, Gazebo is only availible on ubuntu at the time of this project.
 
@@ -103,12 +103,17 @@ Here is the [repo where we kept our raw training images.](https://github.com/sou
 ## Team Members
 
 James Murphy (Project Lead, Computer Vision & YOLO Object Detection)
+
 Matthew Hubbs (Gazebo & Simulation, Computer Vision & YOLO Object Detection)
+
 Bobby Pappas (Computer Vision & YOLO Object Detection)
+
 Andrew Borg (Pathfinding & Mapping, Swarm Algorithms)
+
 Sebastian Almeida (Swarm Algorithms, Pathfinding & Mapping)
 
 ## Contact Email
 
 Matthew Hubbs: mattbhubbs@knights.ucf.edu
+
 James Murphy: jmurphyinbox@gmail.com
