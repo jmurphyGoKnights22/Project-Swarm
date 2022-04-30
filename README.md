@@ -24,7 +24,7 @@ We recomend dual booting because it allows you to fully utilize the same compute
 
 #### Virtual Machine
 
-Again, we highly recomend dual booting over using a virtual machine, but in case you happen to have an industral grade GPU in your computer, you can set up a virtual machine to run our project. At the time of writing, VMware appears to have the best GPU passthrough. You can download [VMWare here](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html), find the [Ubuntu 20.04 LTS ISO here](https://ubuntu.com/download/desktop), and see a demonstarion of how to set up a virtual machine with VMware[this video.](https://youtu.be/BZE6WhOa7GM?t=119) Your virtual Machine will want about 30 GB of storage space. 
+Again, we highly recomend dual booting over using a virtual machine, but in case you happen to have an industral grade GPU in your computer, you can set up a virtual machine to run our project. At the time of writing, VMware appears to have the best GPU passthrough. You can download [VMWare here](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html), find the [Ubuntu 20.04 LTS ISO here](https://ubuntu.com/download/desktop), and see a demonstarion of how to set up a virtual machine with VMware [in this video.](https://youtu.be/BZE6WhOa7GM?t=119) Your virtual Machine will want about 30 GB of storage space. 
 
 #### Dual Boot
 
