@@ -8,7 +8,7 @@ A simulated swarm of drones is shown to search a virtual urban environment to lo
 
 ## Video Tour of Our Repo
 
-Watch this [video here where]() I walk you through this repo's code
+Watch this [video here where](https://www.youtube.com/watch?v=45kGr6-SQEE&list=PL55Hcw8KAqBikR7BzBri38WY2j3jZGE7J&index=6&ab_channel=sounderdiscISW) I walk you through this repo's code
 
 ## Getting Started
 
