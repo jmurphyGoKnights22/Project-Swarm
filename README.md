@@ -6,6 +6,10 @@ UCF Senior Design Project - Sponsored by Lockheed Martin
 
 A simulated swarm of drones is shown to search a virtual urban environment to locate and identify a BB8 unit
 
+## Video Tour of Our Repo
+
+Watch this [video here where]() I walk you through this repo's code
+
 ## Getting Started
 
 ### For Those Who Already Know What They're Doing
@@ -92,6 +96,10 @@ BB8 is hiding behind a car and mailbox up the road from where the drones spawn i
 
 Main the branch where we did our final recorded timed search for BB8. feature/3dLidarSLAM has our failed attempt to run 3d lidar on all the drones, but none of our computers were beefy enough to run more than two drones at a time. feature/onRails is our unfinished work on sending each drone on a preset flight path instead of doing anything intelligent in searching or exploration. This branch is included because some files provide another example on how to work with multiple topics and move drones around in the simulation.
 
+## Training Images
+
+Here is the [repo where we kept our raw training images.](https://github.com/sounderdisc/ProjectSwarmTrainingImages) We also used Roboflow for image labeling, and in the coming weeks I will ask Roboflow to make that data open source, so email me if you want them and I havent updated this section yet. The nice thing about that is that those images are already labeled, but the not so nice thing is that they are hand labeled and imperfect, and we needed more data. With machine learning, we *always* need more data.
+
 ## Team Members
 
 James Murphy (Project Lead, Computer Vision & YOLO Object Detection)
@@ -99,3 +107,8 @@ Matthew Hubbs (Gazebo & Simulation, Computer Vision & YOLO Object Detection)
 Bobby Pappas (Computer Vision & YOLO Object Detection)
 Andrew Borg (Pathfinding & Mapping, Swarm Algorithms)
 Sebastian Almeida (Swarm Algorithms, Pathfinding & Mapping)
+
+## Contact Email
+
+Matthew Hubbs: mattbhubbs@knights.ucf.edu
+James Murphy: jmurphyinbox@gmail.com
