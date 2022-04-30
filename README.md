@@ -112,8 +112,10 @@ Andrew Borg (Pathfinding & Mapping, Swarm Algorithms)
 
 Sebastian Almeida (Swarm Algorithms, Pathfinding & Mapping)
 
-## Contact Email
+## Contact Us
 
 Matthew Hubbs: mattbhubbs@knights.ucf.edu
 
 James Murphy: jmurphyinbox@gmail.com
+
+[Discord invite to the server we used durring this semester.](https://discord.gg/tYwUdJTrTD) If the link doesnt work, then the server has probably been deleted.
